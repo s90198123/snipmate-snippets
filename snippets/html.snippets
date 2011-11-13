@@ -809,3 +809,73 @@ snippet video
 	<video src="${1} height="${2}" width="${3}" preload="${5:none}" autoplay="${6:autoplay}>${7}</video>${8}
 snippet wbr
 	<wbr />${1}
+#================================================
+# Play framework's snippets session
+#================================================
+snippet ##
+	#{${1:tagName} /}${2}
+snippet ###
+	#{${1:tagName} ${2:param}} ${3} #{/${1}}
+snippet dobody
+	#{doBody /}${1}
+snippet dolayout
+	#{doLayout /}${1}
+snippet elseif
+	#{elseif ${1:condition}} ${2} #{/elseif}
+snippet else
+	#{else} ${1} #{/else}
+snippet extends
+	#{extends '${1:class}' /} ${2}
+snippet get
+	#{get '${1:param}' /} ${2}
+snippet if
+	#{if ${1:condition}} ${2} #{/if}
+snippet include
+	#{include ${1:page} /} ${2}
+snippet list
+	#{list items:${1:list}, as:'${2:item}'} ${3} #{/list}
+snippet set
+	#{set ${1:var}: '${2:value}' /}
+snippet $
+	${${1:expression}}${2}
+snippet %
+	%{${1:script}}%${2}
+snippet *
+	*{ ${1:comment} }*${2}
+snippet &
+	&{${1:comment}}${2}
+snippet @
+	@{${1:action}}${2}
+snippet field
+	#{field 'user.name'}
+	<p>
+		<label for="${field.id}">&{field.name}</label>
+		<input type="text" id="${field.id}" name="${field.name}" value="${field.value}" class="${field.errorClass}">
+		<span class="error">${field.error}</span>
+	</p>
+	#{/field}
+snippet st
+	#{selenium 'Test security'}
+
+	clearSession()
+	open('/admins/login')
+	assertTextPresent('Login')
+
+	// by name and value
+	type('account', 'admin')
+	type('password', 'secret')
+
+	clickAndWait('auth')
+	// click('auth')
+	// clickAndWait('submit', '3000')
+
+	// by xpath and text
+	assertText('//h1', 'welcome')
+
+	// by id and text, Verify that the user in correctly logged in
+	assertText('success', 'Welcom admin!')
+
+	#{/selenium}
+#====================================================================
+#  End of Play framework's snippets session
+#====================================================================
